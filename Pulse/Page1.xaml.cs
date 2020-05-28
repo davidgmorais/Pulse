@@ -49,9 +49,31 @@ namespace Pulse
             {
                 Code_Error.Visibility = Visibility.Hidden;
                 Email_Error.Visibility = Visibility.Hidden;
-                Pacient p = new Pacient(code);
-                this.NavigationService.Navigate(p);
 
+                if (!verifySGBDConnection())
+                    return;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Pulse.Utilizador WHERE codigo = '" + code + "'", cn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    User u = new User(
+                        reader["Codigo"].ToString(),
+                        reader["Nome"].ToString(),
+                        reader["DataNascimento"].ToString(),
+                        reader["Morada"].ToString(),
+                        reader["Email"].ToString(),
+                        reader["Telefone"].ToString(),
+                        reader["Telemovel"].ToString(),
+                        reader["NIF"].ToString()
+                    );
+
+                    Pacient p = new Pacient(u);
+                    this.NavigationService.Navigate(p);
+                }
+
+                cn.Close();
+        
             } 
 
         }
@@ -77,11 +99,13 @@ namespace Pulse
             {
                 if (code.Equals(reader["codigo"].ToString()))
                 {
+                    cn.Close();
                     return true;
                 }
             } else
             {
                 Email_Error.Visibility = Visibility.Visible;
+                cn.Close();
                 return false;
             }
 

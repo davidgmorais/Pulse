@@ -23,6 +23,17 @@ namespace Pulse
 		private String telemovel;
 		private String NIF;
 
+		public User(string codigo, string nome, string dataNascimento, string morada, string email, string telefone, string telemovel, string nIF) 
+		{
+			this.Codigo = codigo;
+			this.Nome = nome;
+			this.DataNascimento = dataNascimento;
+			this.morada = morada;
+			this.email = email;
+			this.telefone = telefone;
+			this.telemovel = telemovel;
+			this.NIF = nIF;
+		}
 
 		public User(String Nome, String Codigo, String Email, String Data, String NIF)
 		{
@@ -33,7 +44,9 @@ namespace Pulse
 			this.NIF = NIF;
 		}
 
-		public String getNome()
+     
+
+        public String getNome()
 		{
 			return this.Nome;
 		}
@@ -56,6 +69,11 @@ namespace Pulse
 		public String getNIF()
 		{
 			return this.NIF;
+		}
+
+		public String getMorada()
+		{
+			return this.morada;
 		}
 
 

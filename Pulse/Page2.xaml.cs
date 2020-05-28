@@ -70,7 +70,7 @@ namespace Pulse
             User novo = new User(Name, Code, Email, dateStr, NIF);
             insert(novo);
 
-            Pacient p = new Pacient(novo.getCode());
+            Pacient p = new Pacient(novo);
             this.NavigationService.Navigate(p);
             //crir user
             //insert na bd
