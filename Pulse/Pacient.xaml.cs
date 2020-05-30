@@ -107,6 +107,9 @@ namespace Pulse
             CalendarButton.Height = 146;
             CalendarLabel.FontSize = 16;
 
+            Calendario calendar = new Calendario(user);
+            this.NavigationService.Navigate(calendar);
+
         }
 
         private void OpenEA(object sender, MouseButtonEventArgs e)

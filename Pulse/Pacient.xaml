@@ -60,7 +60,7 @@
 
 
 
-        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" HorizontalAlignment="Right" Visibility="Hidden">
+        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" HorizontalAlignment="Right" Visibility="Visible">
 
             <Grid HorizontalAlignment="Left" Width="185" >
                 <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>

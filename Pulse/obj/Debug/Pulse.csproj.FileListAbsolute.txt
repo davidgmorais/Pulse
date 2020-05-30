@@ -18,3 +18,5 @@ C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Deb
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Pacient.g.cs
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Pacient.baml
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Pulse.csprojAssemblyReference.cache
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Calendario.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Calendario.baml
