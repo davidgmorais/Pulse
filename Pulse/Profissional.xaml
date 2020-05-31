@@ -1,0 +1,90 @@
+﻿<Page x:Class="Pulse.Profissional"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pulse"
+      mc:Ignorable="d" 
+      d:DesignHeight="636" d:DesignWidth="370.799"
+      Title="ProfSaude" Background="Black"
+      Loaded="Profissional_Load"
+
+      >
+
+    <Grid Background="White" Margin="0,0,0.4,0">
+
+        <Grid>
+            <Grid x:Name="Horario" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40, 195, 0, 0" Height="150" Width="130" MouseDown="HorarioPress" MouseUp="OpenHorario" >
+                <Rectangle Fill="LightGray" RadiusX="15" RadiusY="15"/>
+                <Rectangle  x:Name="HorarioButton" Fill="AntiqueWhite" RadiusX="15" RadiusY="15" Height="146" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="HorarioLabel" Content="Horário" Margin="0,0,10,10"  VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16"/>
+            </Grid>
+
+            <Grid x:Name="Consultas" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 195, 40, 0" Height="150" Width="130" MouseDown="ConsultasPress" MouseUp="OpenConsultas">
+                <Rectangle Fill="LightGray" RadiusX="15" RadiusY="15"/>
+                <Rectangle x:Name="ConsultasButton" Fill="AntiqueWhite" RadiusX="15" RadiusY="15" Height="146" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="ConsultasLabel" Content="Consultas" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" Width="80">
+                </Label>
+            </Grid>
+
+            <Grid x:Name="Atualizar" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40, 265, 0, 0" Height="150" Width="130"  MouseDown="AtualizarPress" MouseUp="OpenAtualizar">
+                <Rectangle Fill="LightGray" RadiusX="15" RadiusY="15"/>
+                <Rectangle x:Name="AtualizarButton" Fill="AntiqueWhite" RadiusX="15" RadiusY="15" Height="146" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="AtualizarLabel" Content="Atualizar&#x0a;dados" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16">
+                </Label>
+
+            </Grid>
+
+
+        </Grid>
+
+        <Rectangle Fill="#F17A7A" StrokeThickness="0" RadiusX="27.5" RadiusY="27.5" Margin="0,-26,0.4,420" Height="241" VerticalAlignment="Bottom"/>
+
+        <Rectangle Fill="White" Height="55" Margin="280,25,0,0" RadiusY="100" RadiusX="100" StrokeThickness="3" Stroke="LightPink" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55" MouseUp="LogOut" />
+
+        <Label Content="Profissional&#x0a;de Saúde" HorizontalAlignment="Left" Margin="20,5,0,0" VerticalAlignment="Top" FontSize="40"/>
+        <Label x:Name="ProximaConsulta" Content="Próxima consulta:" HorizontalAlignment="Left" Margin="20,115,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
+        <Label x:Name="DataPoximaConsulta" HorizontalAlignment="Left" Margin="170,115,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
+        <Label x:Name="ProximoTurno" Content="Próximo turno:" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
+        <Label x:Name="DataPoximoTurno" HorizontalAlignment="Left" Margin="170,140,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
+
+
+
+
+        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
+
+            <Grid HorizontalAlignment="Left" Width="185" MouseUp="GoToPaciente" >
+                <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center" Width="30" Source="Icon.png" />
+            </Grid>
+
+            <Grid  HorizontalAlignment="Right" Width="185" MouseUp="GoToAcompanhante" >
+                <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="Professional" Background="#F17A7A" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
+
+            <Grid HorizontalAlignment="Left" Width="123" MouseUp="GoToPaciente">
+                <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
+            </Grid>
+
+            <Grid  HorizontalAlignment="Center" Width="123" MouseUp="GoToAcompanhante">
+                <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center" Source="Icon.png" />
+            </Grid>
+
+            <Grid  HorizontalAlignment="Right" Width="123" >
+                <Label Content="Profissional" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+
+
+</Page>

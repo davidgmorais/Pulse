@@ -60,31 +60,31 @@
 
 
 
-        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" HorizontalAlignment="Right" Visibility="Visible">
+        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
 
             <Grid HorizontalAlignment="Left" Width="185" >
                 <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center" Width="30" Source="Icon.png" />
             </Grid>
 
-            <Grid  HorizontalAlignment="Right" Width="185" >
+            <Grid  HorizontalAlignment="Right" Width="185" MouseUp="GoToAcompanhante">
                 <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
             </Grid>
 
         </Grid>
-        <Grid x:Name="Professional" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" HorizontalAlignment="Right" Visibility="Hidden">
+        <Grid x:Name="Professional" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Hidden">
             <Grid HorizontalAlignment="Left" Width="123" >
                 <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
             </Grid>
 
-            <Grid  HorizontalAlignment="Center" Width="123" >
+            <Grid  HorizontalAlignment="Center" Width="123" MouseUp="GoToAcompanhante">
                 <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center" Source="Icon.png" />
             </Grid>
 
-            <Grid  HorizontalAlignment="Right" Width="123" >
+            <Grid  HorizontalAlignment="Right" Width="123" MouseUp="GoToProfissional">
                 <Label Content="Profissional" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Image HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center"  Source="Icon.png" />
             </Grid>

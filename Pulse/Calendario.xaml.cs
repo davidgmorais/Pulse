@@ -32,5 +32,10 @@ namespace Pulse
            
 
         }
+
+        private void Label_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

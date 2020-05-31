@@ -68,8 +68,16 @@ namespace Pulse
                         reader["NIF"].ToString()
                     );
 
-                    Pacient p = new Pacient(u);
-                    this.NavigationService.Navigate(p);
+                    if (u.getCode().Substring(0,2).Equals("99"))
+                    {
+                        Profissional next = new Profissional(u);
+                        this.NavigationService.Navigate(next);
+                    }
+                    else
+                    {
+                        Pacient next = new Pacient(u);
+                        this.NavigationService.Navigate(next);
+                    }
                 }
 
                 cn.Close();
@@ -128,6 +136,7 @@ namespace Pulse
 
         private void Register_MouseUp(object sender, MouseButtonEventArgs e)
         {
+
             Page2 p = new Page2();
             this.NavigationService.Navigate(p);
         }

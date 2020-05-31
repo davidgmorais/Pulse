@@ -33,9 +33,13 @@ namespace Pulse
 
             if (user.getCode().Substring(0,2).Equals("99")) {
                 Professional.Visibility = Visibility.Visible;
-            } else
+                Doente.Visibility = Visibility.Hidden;
+
+            }
+            else
             {
                 Doente.Visibility = Visibility.Visible;
+                Professional.Visibility = Visibility.Hidden;
             }
 
         }
@@ -76,8 +80,8 @@ namespace Pulse
 
         private string getNearestAppointment()
         {
-            Console.WriteLine(user.getCode());
             String newest = null;
+
             if (!verifySGBDConnection())
                 return null;
             SqlCommand cmd = new SqlCommand("select Data from Pulse.Consulta join Pulse.Utilizador on (CodigoPaciente = Codigo) where Codigo = " + user.getCode() + " order by Data desc", cn);
@@ -164,6 +168,20 @@ namespace Pulse
             FaturasButton.Width = 129;
             FaturasButton.Height = 149;
             FaturasLabel.FontSize = 15;
+
+        }
+
+        private void GoToAcompanhante(object sender, MouseButtonEventArgs e)
+        {
+            Acompanhante acomp = new Acompanhante(this.user);
+            this.NavigationService.Navigate(acomp);
+
+        }
+        
+        private void GoToProfissional(object sender, MouseButtonEventArgs e)
+        {
+            Profissional prof = new Profissional(this.user);
+            this.NavigationService.Navigate(prof);
 
         }
     }

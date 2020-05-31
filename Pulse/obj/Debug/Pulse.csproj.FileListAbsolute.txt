@@ -20,3 +20,9 @@ C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Deb
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Pulse.csprojAssemblyReference.cache
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Calendario.g.cs
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Calendario.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Acompanhante.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Acompanhante.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Profissional.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Profissional.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Horario.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Horario.baml

@@ -55,11 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Acompanhante.xaml.cs">
+      <DependentUpon>Acompanhante.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Calendario.xaml.cs">
       <DependentUpon>Calendario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Horario.xaml.cs">
+      <DependentUpon>Horario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profissional.xaml.cs">
+      <DependentUpon>Profissional.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
+    <Page Include="Acompanhante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Calendario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Horario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Profissional.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
