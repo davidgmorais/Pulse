@@ -15,7 +15,7 @@
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="80,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
         <Label Content="Nome" HorizontalAlignment="Left" Margin="80,198,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="CodeTextBox" HorizontalAlignment="Left" Height="23" Margin="80,285,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
+        <TextBox x:Name="CodeTextBox" MaxLength="8" HorizontalAlignment="Left" Height="23" Margin="80,285,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
         <Label Content="Código" HorizontalAlignment="Left" Margin="80,260,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
 
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="80,348,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
@@ -30,8 +30,15 @@
         <TextBox x:Name="NIFTextBox" HorizontalAlignment="Left" Height="23" Margin="80,481,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
         <Label Content="NIF" HorizontalAlignment="Left" Margin="80,456,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
 
-        <Button x:Name="Sign_up_Button" Content="Sign up" HorizontalAlignment="Left" Margin="137,525,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="Button_Click"/>
-        <Label x:Name="Login" Content="Already have an account" Margin="0,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Center" MouseUp="Register_MouseUp"/>
+        <Button x:Name="Sign_up_Button" HorizontalAlignment="Left" Margin="137,525,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="Button_Click">
+            Criar Conta
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="Login" Content="Já tenho uma conta" Margin="0,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Center" MouseUp="Register_MouseUp"/>
 
 
         <Label x:Name="Code_Error" Content="Código errado." Margin="75,305,90.4,0" VerticalAlignment="Top" FontSize="10" Foreground="Red" Visibility="Hidden"/>

@@ -77,7 +77,7 @@ namespace Pulse
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("select Nome, Estado, Pulse.Paciente.Codigo " +
+            SqlCommand cmd = new SqlCommand("select Nome, Estado,Localizacao, Pulse.Paciente.Codigo " +
                 "from Pulse.Utilizador join Pulse.Paciente on (Utilizador.Codigo = Paciente.Codigo) join Pulse.Acompanha on (Paciente.Codigo = CodigoPacienteAcompanha) " +
                 "where Pulse.Acompanha.CodigoAcompanhanteAcompanha = '" + user.getCode() + "'; ", cn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -89,8 +89,7 @@ namespace Pulse
                     reader["Codigo"].ToString(),
                     reader["Nome"].ToString(),
                     reader["Estado"].ToString(),
-                    "No Hospital", //reader["Localização"].ToString(),
-                    "N/A"//reader["WaitingTime"].ToString()
+                    reader["Localizacao"].ToString()
                 );
                 acompanhantes.Add(at);
                 
@@ -208,7 +207,7 @@ namespace Pulse
             if (!verifySGBDConnection())
                 return null;
 
-            SqlCommand cmd = new SqlCommand("select Paciente.Codigo, Nome, Estado " +
+            SqlCommand cmd = new SqlCommand("select Paciente.Codigo, Nome, Estado, Localizacao " +
                 "from Pulse.Utilizador join Pulse.Paciente on (Utilizador.Codigo = Paciente.Codigo) " +
                 "where Paciente.Codigo = '" + code + "'; ", cn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -232,8 +231,7 @@ namespace Pulse
                     reader["Codigo"].ToString(),
                     reader["Nome"].ToString(),
                     reader["Estado"].ToString(),
-                    "No Hospital", //reader["Localização"].ToString(),
-                    "N/A"//reader["WaitingTime"].ToString()
+                    reader["Localizacao"].ToString()
                 );
                 cn.Close();
                 return at;
@@ -263,15 +261,13 @@ namespace Pulse
             public string Name { get; set; }
             public string State { get; set; }
             public string Location { get; set; }
-            public string WaitingTime { get; set; }
 
-            public AcompanhanteTile(String Code, String nome, String estado, String localizacao, String tempo)
+            public AcompanhanteTile(String Code, String nome, String estado, String localizacao)
             {
                 this.Code = Code;
                 this.Name = nome;
                 this.State = estado;
                 this.Location = localizacao;
-                this.WaitingTime = tempo;
 
             }
 

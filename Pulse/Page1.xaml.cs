@@ -91,7 +91,7 @@ namespace Pulse
             if (!email.Contains('@') || !email.Contains('.')) return false;
             if (code.Length != 8)
             {
-                Email_Error.Visibility = Visibility.Visible;
+                Code_Error.Visibility = Visibility.Visible;
                 return false;
             }
 

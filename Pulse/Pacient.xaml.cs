@@ -111,7 +111,9 @@ namespace Pulse
             CalendarButton.Height = 146;
             CalendarLabel.FontSize = 16;
 
-            Calendario calendar = new Calendario(user);
+           
+
+            Calendario calendar = new Calendario(this.user);
             this.NavigationService.Navigate(calendar);
 
         }
@@ -122,6 +124,10 @@ namespace Pulse
             EAButton.Height = 146;
             EALabel.FontSize = 16;
 
+            ExamesAnalises ea = new ExamesAnalises(this.user);
+            this.NavigationService.Navigate(ea);
+
+
         }
         private void OpenReceitas(object sender, MouseButtonEventArgs e)
         {
@@ -129,12 +135,19 @@ namespace Pulse
             ReceitasButton.Height = 146;
             ReceitasLabel.FontSize = 16;
 
+            Receitas receitas = new Receitas(this.user);
+            this.NavigationService.Navigate(receitas);
+
+
         }
         private void OpenFaturas(object sender, MouseButtonEventArgs e)
         {
             FaturasButton.Width = 126;
             FaturasButton.Height = 146;
             FaturasLabel.FontSize = 16;
+
+            Faturas faturas = new Faturas(this.user);
+            this.NavigationService.Navigate(faturas);
 
         }
 
@@ -145,6 +158,8 @@ namespace Pulse
             CalendarButton.Width = 129;
             CalendarButton.Height = 149;
             CalendarLabel.FontSize = 15;
+
+      
 
         }
 

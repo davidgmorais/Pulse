@@ -26,3 +26,13 @@ C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Deb
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Profissional.baml
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Horario.g.cs
 C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Horario.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Faturas.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Faturas.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Receitas.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Receitas.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Update.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Update.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Consultas.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\Consultas.baml
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\ExamesAnalises.g.cs
+C:\Users\Utilizador\Documents\2Ano\semestre 2\IHC\CineTicket\Pulse\Pulse\obj\Debug\ExamesAnalises.baml

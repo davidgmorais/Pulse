@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pulse"
         mc:Ignorable="d"
-        Title="MainWindow" Height="636" Width="370.799"
+        Title="Pulse" Height="636" Width="370.799"
         ResizeMode="NoResize"
+        Icon="Icon.png"
         >
 
         <Frame Source="Page1.xaml" NavigationUIVisibility="Hidden"/>

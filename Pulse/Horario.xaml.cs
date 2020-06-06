@@ -32,6 +32,7 @@ namespace Pulse
         {
             InitializeComponent();
             this.user = user;
+            Nome.Content = user.getNome();
             horarioTiles = new List<HorarioTile>();
 
         }
@@ -61,7 +62,7 @@ namespace Pulse
            while (reader.Read())
            {
                 HorarioTile ht = new HorarioTile(
-                    reader["Data"].ToString(),
+                    reader["Data"].ToString().Substring(0,5),
                     reader["HoraInicio"].ToString(),
                     reader["HoraFim"].ToString(),
                     reader["Descricao"].ToString()

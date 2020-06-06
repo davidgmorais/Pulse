@@ -61,11 +61,26 @@
     <Compile Include="Calendario.xaml.cs">
       <DependentUpon>Calendario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Consultas.xaml.cs">
+      <DependentUpon>Consultas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExamesAnalises.xaml.cs">
+      <DependentUpon>ExamesAnalises.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Faturas.xaml.cs">
+      <DependentUpon>Faturas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Profissional.xaml.cs">
       <DependentUpon>Profissional.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Receitas.xaml.cs">
+      <DependentUpon>Receitas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Update.xaml.cs">
+      <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="Acompanhante.xaml">
@@ -73,6 +88,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Calendario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Consultas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExamesAnalises.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Faturas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,6 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Profissional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Receitas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,16 +22,15 @@
                         <DataTemplate>
                             <StackPanel Height="124" Margin="0,0,0,0" >
                                 <Border BorderBrush="#F17A7A" BorderThickness="0 0 0 2">
-
                                     <Grid>
                                         <Rectangle Height="120" Width="343" Margin="15,0,0,0" HorizontalAlignment="Left"/>
-                                        <Label x:Name="dayHorario" Content="{Binding Path=day }" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" FontSize="35"/>
+                                        <Label x:Name="dayHorario" Content="{Binding Path=day }" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="30"/>
                                         <Label x:Name="horaInicio" Content= "{Binding Path=horaInicio}" Margin="120,15,0,0" FontSize="15"/>
                                         <Label Content= "->" Margin="54,14,0,0" FontSize="15" HorizontalAlignment="Center"/>
                                         <Label x:Name="horaFim" Content= "{Binding Path=horaFim}" Margin="150,15,0,0" HorizontalAlignment="Center" FontSize="15"/>
                                         <Label x:Name="DescricaoHorario" Content="{Binding Path=description }" Margin="120,50,0,0" FontSize="15"/>
-                                        <Rectangle Fill="#F17A7A"   StrokeThickness="0" Width="15" Margin="0,-2,0,0" HorizontalAlignment="Left"/>
-
+                                        <Rectangle Fill="#F17A7A" Width="15" Margin="0,-2,0,0" HorizontalAlignment="Left"/>
+                                        
                                     </Grid>
                                 </Border>
 
@@ -46,14 +45,14 @@
 
         </Grid>
 
-        
-        <Rectangle Fill="#F17A7A" StrokeThickness="0"  Margin="0,-20,0.500,485" Height="171" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+        <Border Background="#F17A7A"  Margin="0,-20,0,485" Height="171" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Center" CornerRadius="0,0,30,0"></Border>
 
         <Label x:Name="horario" Content="Horário" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="25"/>
         <Label FontFamily="Marlett" FontSize="35" Content="3" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" MouseUp="Label_MouseUp"/>
 
 
-        <Label x:Name="Nome" Content="Nome" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16" />
+        <Label x:Name="Nome" Content="" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16" />
     </Grid>
 
 

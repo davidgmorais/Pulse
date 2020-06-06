@@ -72,8 +72,7 @@ namespace Pulse
 
             Pacient p = new Pacient(novo);
             this.NavigationService.Navigate(p);
-            //crir user
-            //insert na bd
+            
 
         }
 
@@ -82,7 +81,7 @@ namespace Pulse
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand("INSERT INTO Pulse.Utilizador(Codigo, Nome, DataNascimento, Email, NIF) VALUES ( '" + novo.getCode() + "', '" + novo.getNome() + "', '" + novo.getBDay() + "', '" + novo.getEmail() + "', '" + novo.getNIF() + "');", cn);
-            Console.WriteLine(cmd.ToString());
+
             cmd.ExecuteNonQuery();
             cn.Close();
         }

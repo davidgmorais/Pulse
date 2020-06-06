@@ -61,6 +61,9 @@ namespace Pulse
             ConsultasButton.Width = 126;
             ConsultasButton.Height = 146;
             ConsultasLabel.FontSize = 16;
+
+            Consultas consulta = new Consultas(this.user);
+            this.NavigationService.Navigate(consulta);
         }
 
         private void AtualizarPress(object sender, MouseButtonEventArgs e)
@@ -75,6 +78,9 @@ namespace Pulse
             AtualizarButton.Width = 126;
             AtualizarButton.Height = 146;
             AtualizarLabel.FontSize = 16;
+            Update update = new Update(this.user);
+            this.NavigationService.Navigate(update);
+
         }
         
         private void GoToPaciente(object sender, MouseButtonEventArgs e)
@@ -120,7 +126,7 @@ namespace Pulse
             {
                 DataPoximoTurno.Visibility = Visibility.Visible;
                 ProximoTurno.Visibility = Visibility.Visible;
-                DataPoximoTurno.Content = turno.Substring(0, 9);
+                DataPoximoTurno.Content = turno.Substring(0, 10);
             }
             else
             {
@@ -176,18 +182,16 @@ namespace Pulse
             String newest = null;
             if (!verifySGBDConnection())
                 return null;
-            SqlCommand cmd = new SqlCommand("select max(Data) as dataTurno, min(HoraInicio) as hora " + 
-                "from Pulse.Turno join Pulse.Realiza on (Turno.IDTurno = Realiza.IDTurno) join Pulse.Utilizador on (Realiza.IDMedico = Utilizador.Codigo) " + 
-                "where data > '" + DateTime.Now.ToString("yyyy/MM/dd") + "' and HoraInicio > '" + DateTime.Now.ToString("hh:mm") + "' and IDMedico = '" + user.getCode() + "'; ", cn);
+            SqlCommand cmd = new SqlCommand("select max(DataTurno) as dataTurno, min(Hora) as hora " + 
+                "from Pulse.DatasTurnos " + 
+                "where DataTurno > '" + DateTime.Now.ToString("yyyy/MM/dd") + "' and Hora > '" + DateTime.Now.ToString("hh:mm") + "' and IDMedico = '" + user.getCode() + "'; ", cn);
             SqlDataReader reader = cmd.ExecuteReader();
-            Console.WriteLine(DateTime.Now.ToString("hh:mm"));
 
             reader.Read();
             if (!reader.IsDBNull(0))
             {
                 newest = reader["dataTurno"].ToString() + " " + reader["hora"].ToString();
             }
-
 
             cn.Close();
             return newest;
