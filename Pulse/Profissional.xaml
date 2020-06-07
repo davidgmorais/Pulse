@@ -8,7 +8,6 @@
       d:DesignHeight="636" d:DesignWidth="370.799"
       Title="ProfSaude" Background="Black"
       Loaded="Profissional_Load"
-
       >
 
     <Grid Background="White" Margin="0,0,0.4,0">
@@ -69,30 +68,7 @@
         <Label x:Name="ProximoTurno" Content="Próximo turno:" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
         <Label x:Name="DataPoximoTurno" HorizontalAlignment="Left" Margin="170,140,0,0" VerticalAlignment="Top" FontSize="16" Width="144"/>
 
-
-
-
-        <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
-
-            <Grid HorizontalAlignment="Left" Width="185" MouseUp="GoToPaciente" Background="Transparent" >
-                <Label Content="Paciente" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
-                <Viewbox HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
-                    <Canvas Width="24" Height="24">
-                        <Path Fill="Black" Data="M15,14C12.3,14 7,15.3 7,18V20H23V18C23,15.3 17.7,14 15,14M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12M5,15L4.4,14.5C2.4,12.6 1,11.4 1,9.9C1,8.7 2,7.7 3.2,7.7C3.9,7.7 4.6,8 5,8.5C5.4,8 6.1,7.7 6.8,7.7C8,7.7 9,8.6 9,9.9C9,11.4 7.6,12.6 5.6,14.5L5,15Z" />
-                    </Canvas>
-                </Viewbox>
-            </Grid>
-
-            <Grid  HorizontalAlignment="Right" Width="185" MouseUp="GoToAcompanhante" Background="Transparent">
-                <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
-                <Viewbox HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
-                    <Canvas Width="24" Height="24">
-                        <Path Fill="Black" Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
-                    </Canvas>
-                </Viewbox>
-            </Grid>
-
-        </Grid>
+        
         <Grid x:Name="Professional" Background="#F17A7A" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
 
             <Grid HorizontalAlignment="Left" Width="123" MouseUp="GoToPaciente" Background="Transparent">
@@ -114,10 +90,10 @@
             </Grid>
 
             <Grid  HorizontalAlignment="Right" Width="123" Background="Transparent">
-                <Label Content="Profissional" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Label Content="Profissional" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Viewbox HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
                     <Canvas Width="24" Height="24">
-                        <Path Fill="Black" Data="M7.5,4A5.5,5.5 0 0,0 2,9.5C2,10 2.09,10.5 2.22,11H6.3L7.57,7.63C7.87,6.83 9.05,6.75 9.43,7.63L11.5,13L12.09,11.58C12.22,11.25 12.57,11 13,11H21.78C21.91,10.5 22,10 22,9.5A5.5,5.5 0 0,0 16.5,4C14.64,4 13,4.93 12,6.34C11,4.93 9.36,4 7.5,4V4M3,12.5A1,1 0 0,0 2,13.5A1,1 0 0,0 3,14.5H5.44L11,20C12,20.9 12,20.9 13,20L18.56,14.5H21A1,1 0 0,0 22,13.5A1,1 0 0,0 21,12.5H13.4L12.47,14.8C12.07,15.81 10.92,15.67 10.55,14.83L8.5,9.5L7.54,11.83C7.39,12.21 7.05,12.5 6.6,12.5H3Z" />
+                        <Path Fill="white" Data="M7.5,4A5.5,5.5 0 0,0 2,9.5C2,10 2.09,10.5 2.22,11H6.3L7.57,7.63C7.87,6.83 9.05,6.75 9.43,7.63L11.5,13L12.09,11.58C12.22,11.25 12.57,11 13,11H21.78C21.91,10.5 22,10 22,9.5A5.5,5.5 0 0,0 16.5,4C14.64,4 13,4.93 12,6.34C11,4.93 9.36,4 7.5,4V4M3,12.5A1,1 0 0,0 2,13.5A1,1 0 0,0 3,14.5H5.44L11,20C12,20.9 12,20.9 13,20L18.56,14.5H21A1,1 0 0,0 22,13.5A1,1 0 0,0 21,12.5H13.4L12.47,14.8C12.07,15.81 10.92,15.67 10.55,14.83L8.5,9.5L7.54,11.83C7.39,12.21 7.05,12.5 6.6,12.5H3Z" />
                     </Canvas>
                 </Viewbox>
             </Grid>

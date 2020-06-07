@@ -23,7 +23,6 @@ namespace Pulse
     public partial class Update : Page
     {
         private User user;
-        private SqlConnection cn;
 
         String state;
         String location;
@@ -35,58 +34,22 @@ namespace Pulse
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            cn = getSGBDConnection();
- 
-
-        }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
 
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-            getPaciente(codigo.Text);
-        }
+            Paciente pacienteProcurado = db.getPaciente(codigo.Text, this.user.getCode());
 
-        private void getPaciente(string code)
-        {
-            
-            if (!verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand("select Nome, Estado " +
-                "from Pulse.Atende join Pulse.Paciente on (CodigoPacienteAtende = Codigo) join Pulse.Utilizador on (Paciente.Codigo = Utilizador.Codigo) " +
-                "where CodigoMedicoAtende = '" + user.getCode() + "' and CodigoPacienteAtende = '" + code + "';", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            if (pacienteProcurado != null)
             {
                 CodeWarning.Visibility = Visibility.Hidden;
-                nome.Text = reader["Nome"].ToString();
-                estadoInfo.Text = reader["Estado"].ToString();
-                localizacaoInfo.Text = "No Hospital";
+                nome.Text = pacienteProcurado.getName();
+                estadoInfo.Text = pacienteProcurado.getEstado();
+                localizacaoInfo.Text = pacienteProcurado.getLocal();
                 EditState.Visibility = Visibility.Visible;
                 EditLocation.Visibility = Visibility.Visible;
 
                 this.code = codigo.Text;
                 Alta.IsEnabled = true;
-
 
             }
             else
@@ -102,15 +65,13 @@ namespace Pulse
                 Alta.IsEnabled = false;
 
             }
-
-            cn.Close();
-
         }
+
+        
 
         private void ButtonAlta_MouseUp(object sender, RoutedEventArgs e)
         {
-            alterInfo(this.code, "Alta");
-            darAlta(this.code);
+            db.darAlta(this.code, this.user.getCode());
 
             nome.Text = "";
             estadoInfo.Text = "";
@@ -121,17 +82,7 @@ namespace Pulse
             Alta.IsEnabled = false;
         }
 
-        private void darAlta(string code)
-        {
-            if (!verifySGBDConnection())
-                return;
-
-            SqlCommand cmd = new SqlCommand("delete from Pulse.Atende WHERE CodigoPacienteAtende = '" + code + "' and CodigoMedicoAtende = '" + user.getCode() + "';", cn);
-            cmd.ExecuteNonQuery();
-
-            cn.Close();
-
-        }
+        
 
         private void editInfoState(object sender, MouseButtonEventArgs e)
         {
@@ -161,7 +112,7 @@ namespace Pulse
         {
             if (state != estadoInfo.Text)
             {
-                alterInfo(this.code, estadoInfo.Text);
+                db.alterInfo(this.code, estadoInfo.Text);
                 guardar.Visibility = Visibility.Collapsed;
                 cancelar.Visibility = Visibility.Collapsed;
                 estadoInfo.IsEnabled = false;
@@ -170,9 +121,11 @@ namespace Pulse
                 EditLocation.Visibility = Visibility.Visible;
 
 
-            } else if (location != localizacaoInfo.Text)
+            } 
+            
+            if (location != localizacaoInfo.Text)
             {
-                //alterLocation(this.code, location);
+                db.alterLocation(this.code, localizacaoInfo.Text);
                 guardar.Visibility = Visibility.Collapsed;
                 cancelar.Visibility = Visibility.Collapsed;
                 estadoInfo.IsEnabled = false;
@@ -181,18 +134,6 @@ namespace Pulse
                 EditLocation.Visibility = Visibility.Visible;
             }
 
-
-        }
-
-        private void alterInfo(string code, string text)
-        {
-            if (!verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand("update Pulse.Paciente set Estado = '" + text + "' where Codigo = '" +code + "';", cn);
-            cmd.ExecuteNonQuery();
-            Console.WriteLine("Updated");
-
-            cn.Close();
         }
 
         private void cancelar_Click(object sender, RoutedEventArgs e)
@@ -212,8 +153,5 @@ namespace Pulse
 
         }
     }
-
-
-    
 
 }

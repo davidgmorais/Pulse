@@ -23,15 +23,14 @@ namespace Pulse
     public partial class Faturas : Page
     {
         User user;
-        private SqlConnection cn;
-        List<FaturasTile> faturas;
+        List<FaturaInfo> faturas;
 
         public Faturas(User user)
         {
             this.user = user;
             InitializeComponent();
             Nome.Content = user.getNome();
-            faturas = new List<FaturasTile>();
+            faturas = new List<FaturaInfo>();
 
         }
 
@@ -42,65 +41,10 @@ namespace Pulse
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cn = getSGBDConnection();
-            getFaturas();
+            faturas = db.getFaturas(this.user.getCode());
             ListViewFaturas.ItemsSource = faturas;
         }
 
-        private void getFaturas()
-        {
-            if (!verifySGBDConnection())
-                return;
-
-            SqlCommand cmd = new SqlCommand("select * from Pulse.Fatura " +
-                "where CodigoPaciente = '" + user.getCode() + "'; ", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
-            {
-                FaturasTile ft = new FaturasTile(
-                    reader["NrFatura"].ToString(),
-                    reader["Preco"].ToString(),
-                    reader["Data"].ToString()
-                );
-                faturas.Add(ft);
-            }
-
-
-            cn.Close();
-        }
-
-        private class FaturasTile
-        {
-            public string nr { get; set; }
-            public string price { get; set; }
-            public string date { get; set; }
-
-            public FaturasTile(String nr, String price, String date)
-            {
-                this.nr = nr;
-                this.price = price;
-                this.date = date.Substring(0,10);
-            }
-        }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
 
     }
 }

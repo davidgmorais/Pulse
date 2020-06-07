@@ -58,31 +58,44 @@
     <Compile Include="Acompanhante.xaml.cs">
       <DependentUpon>Acompanhante.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AcompanhanteInfo.cs" />
+    <Compile Include="models\Doctor.cs" />
+    <Compile Include="models\ConsulaInfo.cs" />
+    <Compile Include="models\Analises.cs" />
     <Compile Include="Calendario.xaml.cs">
       <DependentUpon>Calendario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consultas.xaml.cs">
       <DependentUpon>Consultas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db.cs" />
     <Compile Include="ExamesAnalises.xaml.cs">
       <DependentUpon>ExamesAnalises.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\FaturaInfo.cs" />
     <Compile Include="Faturas.xaml.cs">
       <DependentUpon>Faturas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\Medicamento.cs" />
+    <Compile Include="models\Paciente.cs" />
+    <Compile Include="models\Turno.cs" />
+    <Compile Include="Perfil.xaml.cs">
+      <DependentUpon>Perfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Profissional.xaml.cs">
       <DependentUpon>Profissional.xaml</DependentUpon>
     </Compile>
+    <Compile Include="models\ReceitaInfo.cs" />
     <Compile Include="Receitas.xaml.cs">
       <DependentUpon>Receitas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Update.xaml.cs">
       <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="models\User.cs" />
     <Page Include="Acompanhante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Perfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 namespace Pulse
 {
 
-
-
-	//2 construtores
-	//1 para medicos + acompanhantes
-	//1 para pacientes
 	public class User
     {
 		private String Codigo;
@@ -38,7 +33,7 @@ namespace Pulse
 		public User(String Nome, String Codigo, String Email, String Data, String NIF)
 		{
 			this.Nome = Nome;
-			this.Codigo = Codigo;           //parse int??
+			this.Codigo = Codigo;           
 			this.email = Email;
 			this.DataNascimento = Data;
 			this.NIF = NIF;
@@ -75,6 +70,36 @@ namespace Pulse
 		{
 			return this.morada;
 		}
+
+		public String getTelefone()
+		{
+			return this.telefone;
+		}
+		
+		public String getTelemovel()
+		{
+			return this.telemovel;
+		}
+
+		public void setTelefone(String telefone)
+		{
+			this.telefone = telefone;
+		}
+
+		public void setMorada(String morada)
+		{
+			this.morada = morada;
+		}
+
+		public void setTelemove(String telefone)
+		{
+			this.telemovel = telefone;
+		}
+		public void setEmail(String e)
+		{
+			this.email = e;
+		}
+
 
 
 	}

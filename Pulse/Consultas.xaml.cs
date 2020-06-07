@@ -24,15 +24,12 @@ namespace Pulse
     {
         //DateTime Date;
         User user;
-        List<ConsultasTile> listaConsultas;
-        private SqlConnection cn;
-
-
+        List<ConsulaInfo> listaConsultas;
 
         public Consultas(User user)
         {
             this.user = user;
-            listaConsultas = new List<ConsultasTile>();
+            listaConsultas = new List<ConsulaInfo>();
             InitializeComponent();
             CalendarioConsultas.DisplayDate = DateTime.Now;
             CalendarioConsultas.SelectedDate = DateTime.Now;
@@ -43,52 +40,20 @@ namespace Pulse
         {
 
             ListViewConsultas.ItemsSource = listaConsultas;
-            getConsultas(DateTime.Now);
-
-           
-        }
-
-        private void getConsultas(DateTime date)
-        {
-
-
-            if (!verifySGBDConnection())
-                return;
-
-            String data = date.ToString("yyyy-MM-dd");
-
-            SqlCommand cmd = new SqlCommand("select Hora, Data, NrConsultorio, Nome " +
-                "from Pulse.Consulta join Pulse.Utilizador on (CodigoPaciente = Codigo) " +
-                "where CodigoMedico = '" + this.user.getCode() + "' and Data = '" + data + "' " +
-                "order by Hora asc;", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
-            {
-                ConsultasTile c = new ConsultasTile(
-                    reader["Data"].ToString().Substring(0, 10),
-                    reader["NrConsultorio"].ToString(),
-                    reader["Hora"].ToString().Substring(0, 5),
-                    reader["Nome"].ToString()
-                );
-                listaConsultas.Add(c);
-            }
+            listaConsultas = db.getConsultas(DateTime.Now, this.user.getCode());
 
             ListViewConsultas.Items.Refresh();
-            cn.Close();
-        }
 
+        }
 
         private void CalendarioConsultas_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             if (CalendarioConsultas.SelectedDate.HasValue)
             {
-                listaConsultas.Clear();
-                getConsultas(CalendarioConsultas.SelectedDate.Value);
+                listaConsultas = db.getConsultas(CalendarioConsultas.SelectedDate.Value, this.user.getCode());
 
+                ListViewConsultas.ItemsSource = listaConsultas;
             }
-
 
         }
 
@@ -99,39 +64,7 @@ namespace Pulse
         }
 
 
-        private class ConsultasTile
-        {
-            public String Data { get; set; }
-            public String Consultorio { get; set; }
-            public String Hora { get; set; }
-            public String paciente { get; set; }
-
-            public ConsultasTile(String Data, String Consultorio, String hora, String paciente)
-            {
-                this.Data = Data;
-                this.Consultorio = Consultorio;
-                this.Hora = hora;
-                this.paciente = paciente;
-            }
-
-        }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
+        
 
     }
 }

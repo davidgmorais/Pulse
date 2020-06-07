@@ -23,9 +23,6 @@ namespace Pulse
     public partial class Pacient : Page
     {
         User user;
-        private SqlConnection cn;
-
-
         public Pacient(User user)
         {
             InitializeComponent();
@@ -46,8 +43,7 @@ namespace Pulse
 
         private void Pacient_Load(object sender, EventArgs e)
         {
-            cn = getSGBDConnection();
-            String date = getNearestAppointment();
+            String date = db.getNearestPacientAppointment(this.user.getCode());
 
             if (date != null)
             {
@@ -60,47 +56,11 @@ namespace Pulse
                 PoximaConsulta.Visibility = Visibility.Hidden;
             }
         }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
-        private string getNearestAppointment()
-        {
-            String newest = null;
-
-            if (!verifySGBDConnection())
-                return null;
-            SqlCommand cmd = new SqlCommand("select Data from Pulse.Consulta join Pulse.Utilizador on (CodigoPaciente = Codigo) where Codigo = " + user.getCode() + " order by Data desc", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            
-            if (reader.Read())
-            {
-                newest = reader["Data"].ToString();
-            }
-                        
-            
-            cn.Close();
-            return newest;
-        }
+       
 
         private void LogOut(object sender, MouseButtonEventArgs e)
         {
-            user = null;
-            Page1 p = new Page1();
+            Perfil p = new Perfil(this.user);
             this.NavigationService.Navigate(p);
 
         }

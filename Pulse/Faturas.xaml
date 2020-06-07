@@ -29,7 +29,7 @@
                                         <Label Content="Fatura nº" HorizontalAlignment="Left" Margin="28,30,0,0" VerticalAlignment="Top" FontSize="15"/>
                                         <Label Content= "Data:" Margin="150,25,0,0" HorizontalAlignment="Left" FontSize="15"/>
                                         <Label x:Name="DataFatura" Content= "{Binding Path=date}" Margin="0,25,25,0" HorizontalAlignment="Right" FontSize="15"/>
-                                        <Label Content= "Preço:" Margin="150,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
+                                        <Label Content= "Preço: €" Margin="150,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
                                         <Label x:Name="PrecoFatura" Content= "{Binding Path=price}" Margin="0,35,25,0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15"/>
                                         <Rectangle Fill="#B9DCEB" Width="15" Margin="0,-2,0,0" HorizontalAlignment="Left"/>
 

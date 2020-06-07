@@ -22,52 +22,30 @@ namespace Pulse
     /// </summary>
     public partial class Page1 : Page
     {
-        private SqlConnection cn;
         
         public Page1()
         {
             InitializeComponent();
-        }
-
-        private void Page1_Load(object sender, EventArgs e)
-        {
-            cn = getSGBDConnection();
-        }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
+            db.innit();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Code_Error.Visibility = Visibility.Hidden;
+            Email_Error.Visibility = Visibility.Hidden;
 
             String email = EmailTextBox.Text;
             String code = CodeTextBox.Password.ToString();
-            if (verify(email, code))
+
+            int verification = db.Verify(email, code);
+
+            if (verification == 1)
             {
-                Code_Error.Visibility = Visibility.Hidden;
-                Email_Error.Visibility = Visibility.Hidden;
 
-                if (!verifySGBDConnection())
-                    return;
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Pulse.Utilizador WHERE codigo = '" + code + "'", cn);
-                SqlDataReader reader = cmd.ExecuteReader();
+                User u = db.loadUser(code);
 
-                if (reader.Read())
-                {
-                    User u = new User(
-                        reader["Codigo"].ToString(),
-                        reader["Nome"].ToString(),
-                        reader["DataNascimento"].ToString(),
-                        reader["Morada"].ToString(),
-                        reader["Email"].ToString(),
-                        reader["Telefone"].ToString(),
-                        reader["Telemovel"].ToString(),
-                        reader["NIF"].ToString()
-                    );
 
+                if (u!= null) { 
                     if (u.getCode().Substring(0,2).Equals("99"))
                     {
                         Profissional next = new Profissional(u);
@@ -79,60 +57,21 @@ namespace Pulse
                         this.NavigationService.Navigate(next);
                     }
                 }
-
-                cn.Close();
         
-            } 
-
-        }
-
-        private bool verify(string email, string code)
-        {
-            if (!email.Contains('@') || !email.Contains('.')) return false;
-            if (code.Length != 8)
+            }
+            
+            else if (verification == 0)
             {
                 Code_Error.Visibility = Visibility.Visible;
-                return false;
-            }
-
-
-            //verificar base de dados
-            if (!verifySGBDConnection())
-                return false;
-            SqlCommand cmd = new SqlCommand("SELECT email, codigo as codigo FROM Pulse.Utilizador WHERE email = '" + email + "'", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            if (reader.Read())
-            {
-                if (code.Equals(reader["codigo"].ToString()))
-                {
-                    cn.Close();
-                    return true;
-                }
-            } else
+            } 
+            
+            else if  ( verification == -1 )
             {
                 Email_Error.Visibility = Visibility.Visible;
-                cn.Close();
-                return false;
             }
 
-
-            cn.Close();
-            Code_Error.Visibility = Visibility.Visible;
-            return false;
         }
 
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
 
         private void Register_MouseUp(object sender, MouseButtonEventArgs e)
         {

@@ -22,94 +22,21 @@ namespace Pulse
     /// </summary>
     public partial class Horario : Page
     {
-
-        List<HorarioTile> horarioTiles;
-        private SqlConnection cn;
+        List<Turno> horarioTiles;
         User user;
-
-
         public Horario(User user)
         {
             InitializeComponent();
             this.user = user;
             Nome.Content = user.getNome();
-            horarioTiles = new List<HorarioTile>();
-
+            horarioTiles = new List<Turno>();
         }
-
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
-            cn = getSGBDConnection();
-            getShifts();
+            horarioTiles = db.getShifts(this.user.getCode());
             ListViewProducts.ItemsSource = horarioTiles;
         }
-
-
-        private void getShifts()
-        {
-
-            if (!verifySGBDConnection())
-                return;
-
-            SqlCommand cmd = new SqlCommand("select Data, HoraInicio, HoraFim, Descricao " + 
-                "from Pulse.Turno join Pulse.Realiza on (Turno.IDTurno = Realiza.IDTurno) join Pulse.Utilizador on (Realiza.IDMedico = Utilizador.Codigo) " +
-                "where IDMedico = '" + user.getCode() + "'; ", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            
-           while (reader.Read())
-           {
-                HorarioTile ht = new HorarioTile(
-                    reader["Data"].ToString().Substring(0,5),
-                    reader["HoraInicio"].ToString(),
-                    reader["HoraFim"].ToString(),
-                    reader["Descricao"].ToString()
-                );
-                horarioTiles.Add(ht);
-            }
-
-
-            cn.Close();
-        }
-
-
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
-
-        private class HorarioTile{
-
-            public string day { get; set; }
-            public string horaInicio { get; set; }
-            public string horaFim { get; set; }
-            public string description { get; set; }
-
-
-            public HorarioTile(String dia, String horaI, String horaF, String d)
-            {
-                this.day = dia;
-                this.horaInicio = horaI;
-                this.horaFim = horaF;
-                this.description = d;
-            }
-       }
 
         private void Label_MouseUp(object sender, MouseButtonEventArgs e)
         {

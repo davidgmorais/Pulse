@@ -40,7 +40,7 @@
                         <DataTemplate>
                             <StackPanel>
 
-                                <Grid Height="60" Background="AliceBlue" Margin="20,0,20,0">
+                                <Grid Height="60" Background="AliceBlue" Margin="20,0,20,10">
                                     
                                     <Border BorderBrush="Black" BorderThickness="1">
                                         <Grid Width="80" HorizontalAlignment="Left">
@@ -54,7 +54,7 @@
                                     <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="170,5,0,0" Content="{Binding Consultorio}"></Label>
 
                                     <Label VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="85,0,0,8" Content="Médico:"></Label>
-                                    <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="135,0,0,13" Text="{Binding medico}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="135,0,0,13" Text="{Binding Nome}" TextWrapping="Wrap"></TextBlock>
 
                                     
                                 </Grid>
@@ -68,7 +68,7 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid VerticalAlignment="Bottom" Height="280" Margin="0,0,0,60" x:Name="marcacao" Visibility="Hidden">
+        <Grid VerticalAlignment="Bottom" Height="280" Margin="0,0,0,60" x:Name="marcacao" Visibility="Hidden" Background="White">
             <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,10" FontSize="14">Médico/a</Label>
             <StackPanel Margin="50,40" VerticalAlignment="Top" Height="30">
                 <ComboBox Name="medicList" SelectionChanged="ComboBox_SelectionChanged">

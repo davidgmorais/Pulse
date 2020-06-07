@@ -84,9 +84,7 @@
             </Border>
         </Viewbox>
 
-        <Label Content="Acompanhante" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontSize="35"/>
-
-
+        <Label Content="Acompanhante" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" FontSize="35"/>
 
         <Grid x:Name="Doente" Background="#FFB9DCEB" Margin="0,530,0,0" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="Visible">
 
@@ -100,10 +98,10 @@
             </Grid>
 
             <Grid  HorizontalAlignment="Right" Background="Transparent" Width="185" >
-                <Label Content="Acompanhante" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+                <Label Content="Acompanhante" Foreground="#F17A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Viewbox HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
                     <Canvas Width="24" Height="24">
-                        <Path Fill="Black" Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
+                        <Path Fill="#F17A7A" Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
                     </Canvas>
                 </Viewbox>
             </Grid>
@@ -120,11 +118,11 @@
                 </Viewbox>
             </Grid>
 
-            <Grid  HorizontalAlignment="Center" Width="123" >
-                <Label Content="Acompanhante" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
+            <Grid  HorizontalAlignment="Center" Width="123" Background="Transparent" >
+                <Label Content="Acompanhante" Foreground="#f17A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 40, 0,0"/>
                 <Viewbox HorizontalAlignment="Center" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
                     <Canvas Width="24" Height="24">
-                        <Path Fill="Black" Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
+                        <Path Fill="#F17A7A" Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" />
                     </Canvas>
                 </Viewbox>
             </Grid>

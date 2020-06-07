@@ -23,8 +23,6 @@ namespace Pulse
     public partial class Profissional : Page
     {
         User user;
-        private SqlConnection cn;
-
         public Profissional(User user)
         {
             this.user = user;
@@ -97,15 +95,14 @@ namespace Pulse
         
         private void LogOut(object sender, MouseButtonEventArgs e)
         {
-            Page1 p = new Page1();
+            Perfil p = new Perfil(this.user);
             this.NavigationService.Navigate(p);
         }
 
         private void Profissional_Load(object sender, EventArgs e)
         {
-            cn = getSGBDConnection();
-            String consulta = getNearestAppointment();
-            String turno = getNearestShift();
+            String consulta = db.getNearestAppointment(user.getCode());
+            String turno = db.getNearestShift(user.getCode());
 
             if (consulta != null)
             {
@@ -135,68 +132,7 @@ namespace Pulse
 
             }
 
-
-
         }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("Data Source=DESKTOP-HB27C6M;Initial Catalog=Pulse;Integrated Security=True");
-
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
-        private string getNearestAppointment()
-        {
-            String newest = null;
-            if (!verifySGBDConnection())
-                return null;
-            SqlCommand cmd = new SqlCommand("select max(Data) as dataConsulta "  + 
-                "from Pulse.Utilizador join Pulse.Consulta on (Utilizador.Codigo = Consulta.CodigoMedico) " +
-                "where data > ' " + DateTime.Now.ToString("yyyy/MM/dd") + "' and CodigoMedico = '" + user.getCode() + "'; ", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            reader.Read();
-            if (!reader.IsDBNull(0))
-            {
-                newest = reader["dataConsulta"].ToString();
-            }
-
-
-            cn.Close();
-            return newest;
-        }
-        
-        private string getNearestShift()
-        {
-            String newest = null;
-            if (!verifySGBDConnection())
-                return null;
-            SqlCommand cmd = new SqlCommand("select max(DataTurno) as dataTurno, min(Hora) as hora " + 
-                "from Pulse.DatasTurnos " + 
-                "where DataTurno > '" + DateTime.Now.ToString("yyyy/MM/dd") + "' and Hora > '" + DateTime.Now.ToString("hh:mm") + "' and IDMedico = '" + user.getCode() + "'; ", cn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            reader.Read();
-            if (!reader.IsDBNull(0))
-            {
-                newest = reader["dataTurno"].ToString() + " " + reader["hora"].ToString();
-            }
-
-            cn.Close();
-            return newest;
-        }
-
 
     }
 }
