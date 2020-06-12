@@ -132,7 +132,7 @@ namespace Pulse
                 acompanhantes.Remove(at);
                 ListViewAcompanhante.Items.Refresh();
                 //adicionar a base de dados
-                db.removeAcompanahnte(at, this.user.getCode());
+                db.removeAcompanhante(at, this.user.getCode());
                 CodeRemove.Visibility = Visibility.Hidden;
             }
         }     

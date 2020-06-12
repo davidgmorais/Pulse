@@ -10,27 +10,29 @@
 
     <Grid Background="#FFB9DCEB" >
 
-        <Image HorizontalAlignment="Left" Height="92" Margin="137,86,0,0" VerticalAlignment="Top" Width="88" Source="Icon.png"/>
+        <Image HorizontalAlignment="Left" Height="92" Margin="137,60,0,0" VerticalAlignment="Top" Width="88" Source="Icon.png"/>
 
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="80,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
-        <Label Content="Nome" HorizontalAlignment="Left" Margin="80,198,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="80,200,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="80,175,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="CodeTextBox" MaxLength="8" HorizontalAlignment="Left" Height="23" Margin="80,285,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
-        <Label Content="Código" HorizontalAlignment="Left" Margin="80,260,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="CodeTextBox" MaxLength="8" HorizontalAlignment="Left" Height="23" Margin="80,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="80,225,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
 
-        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="80,348,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="80,323,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5"/>
- 
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="80,300,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="80,275,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5"/>
 
+        <PasswordBox x:Name="PasswordTextBox" MaxLength="30" HorizontalAlignment="Left" Height="23" Margin="80,350,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="80,325,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5"/>
+
+
+
+        <DatePicker x:Name="DataNascimento"  HorizontalAlignment="Left" Margin="80,400,0,0" VerticalAlignment="Top" Width="210" />
+        <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="80,375,0,0" VerticalAlignment="Top" Width="210" RenderTransformOrigin="0.5,0.5"/>
         
-        <Label Content="-" HorizontalAlignment="Left" Margin="138,412,0,0" VerticalAlignment="Top" Width="15" RenderTransformOrigin="0.5,0.5"/>
-        <DatePicker x:Name="DataNascimento"  HorizontalAlignment="Left" Margin="80,415,0,0" VerticalAlignment="Top" Width="210" />
-        <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="80,389,0,0" VerticalAlignment="Top" Width="210" RenderTransformOrigin="0.5,0.5"/>
-        
-        <TextBox x:Name="NIFTextBox" HorizontalAlignment="Left" Height="23" Margin="80,481,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
-        <Label Content="NIF" HorizontalAlignment="Left" Margin="80,456,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="NIFTextBox" MaxLength="9" HorizontalAlignment="Left" Height="23" Margin="80,450,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"/>
+        <Label Content="NIF" HorizontalAlignment="Left" Margin="80,425,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5"/>
 
-        <Button x:Name="Sign_up_Button" HorizontalAlignment="Left" Margin="137,525,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="Button_Click">
+        <Button x:Name="Sign_up_Button" HorizontalAlignment="Left" Margin="137,500,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="Button_Click">
             Criar Conta
             <Button.Resources>
                 <Style TargetType="Border">
@@ -41,8 +43,8 @@
         <Label x:Name="Login" Content="Já tenho uma conta" Margin="0,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Center" MouseUp="Register_MouseUp"/>
 
 
-        <Label x:Name="Code_Error" Content="Código errado." Margin="75,305,90.4,0" VerticalAlignment="Top" FontSize="10" Foreground="Red" Visibility="Hidden"/>
-        <Label x:Name="Email_Error" Content="Já existe conta associada a este email." Margin="75,368,90.4,0" VerticalAlignment="Top" FontSize="10" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="Code_Error" Content="Código errado." HorizontalAlignment="Right" Margin="0,225,62,0" VerticalAlignment="Top" FontSize="10" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="Email_Error" Content="Email já existe." HorizontalAlignment="Right" Margin="0,275,62,0" VerticalAlignment="Top" FontSize="10" Foreground="Red" Visibility="Hidden"/>
 
 
     </Grid>

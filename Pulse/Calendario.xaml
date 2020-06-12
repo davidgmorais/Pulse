@@ -54,9 +54,9 @@
                                     <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="170,5,0,0" Content="{Binding Consultorio}"></Label>
 
                                     <Label VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="85,0,0,8" Content="Médico:"></Label>
-                                    <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="135,0,0,13" Text="{Binding Nome}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="135,0,15,13" Text="{Binding Nome}" TextWrapping="NoWrap"></TextBlock>
 
-                                    
+
                                 </Grid>
                               
                             </StackPanel>

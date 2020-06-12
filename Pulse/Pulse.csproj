@@ -58,7 +58,7 @@
     <Compile Include="Acompanhante.xaml.cs">
       <DependentUpon>Acompanhante.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AcompanhanteInfo.cs" />
+    <Compile Include="models\AcompanhanteInfo.cs" />
     <Compile Include="models\Doctor.cs" />
     <Compile Include="models\ConsulaInfo.cs" />
     <Compile Include="models\Analises.cs" />

@@ -54,7 +54,7 @@
 
             <Border Background="#B9DCEB"  Margin="0,-20,0,485" Height="171" Width="370" VerticalAlignment="Bottom" HorizontalAlignment="Center" CornerRadius="0,0,30,0"></Border>
 
-            <Label Content="Exames e Analises" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="25"/>
+            <Label Content="Exames e Análises" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="25"/>
             <Label FontFamily="Marlett" FontSize="35" Content="3" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" MouseUp="Label_MouseUp"/>
             <Label x:Name="Nome" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16" Width="200" HorizontalContentAlignment="Center" />
 

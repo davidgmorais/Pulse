@@ -41,24 +41,26 @@ namespace Pulse
             String Code = CodeTextBox.Text;
             String Email = EmailTextBox.Text;
             String NIF = NIFTextBox.Text;
+            String password = PasswordTextBox.Password;
 
-
-            if (db.verificar(Code, Email, NIF))
+            try
             {
                 String dateStr = date.Value.ToString("MM/dd/yyyy");
-                Console.WriteLine(dateStr);
-
+                
                 User novo = new User(Name, Code, Email, dateStr, NIF);
-                db.insertUser(novo);
+                db.insertUser(novo, password);
 
                 Pacient p = new Pacient(novo);
                 this.NavigationService.Navigate(p);
 
-            } else
+            }
+            catch (SqlException ex)
             {
+                Console.WriteLine(ex.Message);
                 Email_Error.Visibility = Visibility.Visible;
                 Code_Error.Visibility = Visibility.Visible;
             }
+
 
         }
 

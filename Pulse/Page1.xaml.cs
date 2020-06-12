@@ -37,14 +37,9 @@ namespace Pulse
             String email = EmailTextBox.Text;
             String code = CodeTextBox.Password.ToString();
 
-            int verification = db.Verify(email, code);
-
-            if (verification == 1)
+            User u = db.loadUser(email, code);
+            if (u != null)
             {
-
-                User u = db.loadUser(code);
-
-
                 if (u!= null) { 
                     if (u.getCode().Substring(0,2).Equals("99"))
                     {
@@ -57,18 +52,14 @@ namespace Pulse
                         this.NavigationService.Navigate(next);
                     }
                 }
-        
-            }
-            
-            else if (verification == 0)
+
+            } else
             {
                 Code_Error.Visibility = Visibility.Visible;
-            } 
-            
-            else if  ( verification == -1 )
-            {
                 Email_Error.Visibility = Visibility.Visible;
+
             }
+
 
         }
 

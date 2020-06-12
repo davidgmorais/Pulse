@@ -39,9 +39,9 @@ namespace Pulse
 			this.NIF = NIF;
 		}
 
-     
 
-        public String getNome()
+
+		public String getNome()
 		{
 			return this.Nome;
 		}
@@ -99,8 +99,7 @@ namespace Pulse
 		{
 			this.email = e;
 		}
-
-
+		
 
 	}
 }
